@@ -23,6 +23,7 @@ int main()
       wait(NULL);
       printf("process pid %d parent pid %d\n", getpid(), getppid());
       execl("./listDir.sh", "listDir.sh", NULL);
+      exit(0);
     }
   if (p != 0 && q != 0)
     {
@@ -31,10 +32,13 @@ int main()
   if (p != 0 && q == 0)
     {
       printf("process pid %d parent pid %d\n", getpid(), getppid());
+      exit(0);
     }
   if (p != 0 && q != 0)
     {
       wait(NULL);
       printf("process pid :%d\n", getpid());
+      exit(0);
     }
+  
 }

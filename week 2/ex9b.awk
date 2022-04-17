@@ -1,0 +1,1 @@
+{if($3=="Coimbature")sum+=$4}END{print "sales amount of Coimbature is",sum}

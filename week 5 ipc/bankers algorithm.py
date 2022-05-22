@@ -12,6 +12,7 @@ def bankerSafe(resourse, instances, queue):
     #print(instances)
     safe = []
     k = 0
+    notrun = 0
     add = [False]*len(queue)
     while not all(add):
         if add[k]:
@@ -24,12 +25,16 @@ def bankerSafe(resourse, instances, queue):
                 add[k] = True
                 #print(add)
             #print("instances", instances)
+            else: notrun += 1
             safe.append(process)
         try:
             k = (k+1)%len(queue)
             #print(k)
         except:
             break
+        if notrun > 2 * len(queue):
+            print("dead lock")
+            return
     for process in safe:
         print(process[0], end = " ")
     
